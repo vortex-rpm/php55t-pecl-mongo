@@ -16,7 +16,7 @@
 
 Summary:      PHP MongoDB database driver
 Name:         %{php_base}-pecl-mongo
-Version:      1.4.5
+Version:      1.6.8
 Release:      1.vortex%{?dist}
 License:      ASL 2.0
 Group:        Development/Languages
@@ -46,7 +46,7 @@ Provides:     %{php_base}-pecl(%{pecl_name}) = %{version}-%{release}
 This package provides an interface for communicating with the MongoDB database
 in PHP.
 
-%prep 
+%prep
 %setup -c -q
 cd %{pecl_name}-%{version}
 
@@ -54,7 +54,7 @@ cd %{pecl_name}-%{version}
 %build
 cd %{pecl_name}-%{version}
 phpize
-%configure 
+%configure
 %{__make} %{?_smp_mflags}
 
 
@@ -74,32 +74,32 @@ extension=%{pecl_name}.so
 ;  If persistent connections are allowed.
 ;mongo.allow_persistent = 1
 
-;  Whether to reconnect to the database if the connection is lost. 
+;  Whether to reconnect to the database if the connection is lost.
 ;mongo.auto_reconnect = 1
 
-;  The number of bytes-per-chunk. 
-;  This number must be at least 100 less than 4 megabytes (max: 4194204) 
+;  The number of bytes-per-chunk.
+;  This number must be at least 100 less than 4 megabytes (max: 4194204)
 ;mongo.chunk_size = 262144
 
 ;  A character to be used in place of $ in modifiers and comparisons.
 ;mongo.cmd = $
 
-;  Default hostname when nothing is passed to the constructor. 
+;  Default hostname when nothing is passed to the constructor.
 ;mongo.default_host = localhost
 
-;  The default TCP port number. The database's default is 27017. 
+;  The default TCP port number. The database's default is 27017.
 ;mongo.default_port = 27017
 
-;  Return a BSON_LONG as an instance of MongoInt64  
-;  (instead of a primitive type). 
+;  Return a BSON_LONG as an instance of MongoInt64
+;  (instead of a primitive type).
 ;mongo.long_as_object = 0
 
 ;  Use MongoDB native long (this will default to true for 1.1.0)
 mongo.native_long = true
 
-;  If an exception should be thrown for non-UTF8 strings. 
-;  This option will be eliminated and exceptions always thrown for non-UTF8 
-;  strings starting with version 1.1.0. 
+;  If an exception should be thrown for non-UTF8 strings.
+;  This option will be eliminated and exceptions always thrown for non-UTF8
+;  strings starting with version 1.1.0.
 mongo.utf8 = 1
 EOF
 
@@ -145,6 +145,9 @@ cd %{pecl_name}-%{version}
 
 
 %changelog
+* Tue Jun 09 2015 Ilya Otyutskiy <ilya.otyutskiy@icloud.com> - 1.6.8-1.vortex
+- Update to 1.6.8.
+
 * Fri Apr  4 2014 Ilya Otyutskiy <ilya.otyutskiy@icloud.com> - 1.4.5-1.vortex
 - Rebuilt with php55t.
 
@@ -156,7 +159,7 @@ cd %{pecl_name}-%{version}
 
 * Mon Dec 31 2012 Ben Harper <ben.harper@rackspace.com> - 1.3.2-1
 - porting from EPEL
-- upsteam 1.3.2 
+- upsteam 1.3.2
 
 * Sat Jul 28 2012 Christof Damian <christof@damian.net> - 1.2.12-1
 - upstream 1.2.12
